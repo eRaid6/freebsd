@@ -163,6 +163,6 @@ sudo service tor onestart
 4. Configure a Firefox profile for Tor (using default SOCKS port 9050) and make it secure and use tor only after wireguard is started.  Install ublock-origin, no-script and https everywhere addons.
 
 # Additional info
-[FreeBSD Handbook](https://www.freebsd.org/doc/handbook/)
-[FuryBSD LiveCD](https://github.com/furybsd/furybsd-livecd)
-[FreeBSD Forums](https://forums.freebsd.org/)
+[FreeBSD Handbook](https://www.freebsd.org/doc/handbook/)  
+[FuryBSD LiveCD](https://github.com/furybsd/furybsd-livecd)  
+[FreeBSD Forums](https://forums.freebsd.org/)  
