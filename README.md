@@ -1,6 +1,8 @@
 # Installing FreeBSD 12.1 as a KVM guest
 First and foremost, when in doubt visit the [FreeBSD Handbook](https://www.freebsd.org/doc/handbook/), it is an amazing source of knowledge.
-Add evtouch tablet input device, this uses absolute mouse positioning and makes it so you do not need to hit ctrl + alt to release the mouse from the remote-viewer/virt-manager window.
+
+## VM config
+* Add evtouch tablet input device, this uses absolute mouse positioning and makes it so you do not need to hit ctrl + alt to release the mouse from the remote-viewer/virt-manager window.
 
 ## Install
 * Select ports and source to be installed
@@ -154,6 +156,13 @@ tor_enable="YES"
 # prevent traffic analysis that exploits sequential IP IDs
 net.inet.ip.random_id=1
 ```
-sudo service tor start
+4. Start Tor
 ```
-4. Configure a Firefox profile for Tor and make it secure and use it only enable tor after wireguard is started.  Install ublock-origin, no-script and https everywhere addons.
+sudo service tor onestart
+```
+4. Configure a Firefox profile for Tor (using default SOCKS port 9050) and make it secure and use tor only after wireguard is started.  Install ublock-origin, no-script and https everywhere addons.
+
+# Additional info
+[FreeBSD Handbook](https://www.freebsd.org/doc/handbook/)
+[FuryBSD LiveCD](https://github.com/furybsd/furybsd-livecd)
+[FreeBSD Forums](https://forums.freebsd.org/)
