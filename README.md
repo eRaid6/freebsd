@@ -1,5 +1,5 @@
 # Installing FreeBSD 12.1 as a KVM guest
-First and foremost, when in doubt visit the [FreeBSD Handbook](https://www.freebsd.org/doc/handbook/), it is an amazing source of knowledge.
+First and foremost, when in doubt visit the [FreeBSD Handbook](https://www.freebsd.org/doc/handbook/), it is an amazing source of knowledge.  The configuration below does not always show how to make changes to the running system, so always reboot to make the changes live.
 
 ## VM config
 * Add evtouch tablet input device, this uses absolute mouse positioning and makes it so you do not need to hit ctrl + alt to release the mouse from the remote-viewer/virt-manager window.
