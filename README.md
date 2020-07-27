@@ -6,8 +6,9 @@ First and foremost, when in doubt visit the [FreeBSD Handbook](https://www.freeb
 
 ## Install
 * Select ports and source to be installed
-* Select AutoZFS
-* Select Encrypt Disk and Encrypt Swap
+* Select Shell partitioning method
+[](http://daemon-notes.com/articles/system/encryption)
+[](https://www.c0ffee.net/blog/freebsd-full-disk-encryption-uefi/)
 
 ## Basic config
 1. Install nice to have packages
@@ -37,9 +38,9 @@ lightdm_enable="YES"
 ```
 3. Enable utouch driver for better mouse support
 ```
-echo '#
+#
 # evtouch driver for mouse
-utouch_load="YES"' >> /boot/loader.conf
+utouch_load="YES"
 ```
 4. Configure qxl video output
 /usr/local/etc/X11/xorg.conf.d/spiceqxl.xorg.conf
@@ -67,6 +68,21 @@ EndSection
 ```
 
 ## Configure Security
+### sshd config
+1. Do not allo root login
+```
+sudo sed -iE 's/.*PermitRootLogin .*/PermitRootLogin no/g' /etc/ssh/sshd_config
+```
+2. Do not allow password logins
+```
+sudo sed -iE 's/.*PermitEmptyPasswords .*/PermitEmptyPasswords no/g' /etc/ssh/sshd_config
+sudo sed -iE 's/.*PasswordAuthentication .*/PasswordAuthentication no/g' /etc/ssh/sshd_config
+```
+3. Only allow specific users to login
+```
+sudo echo 'AllowUsers bob joe' >> /etc/ssh/sshd_config
+```
+
 ### IPFW
 1. Enable IPFW firewall and configure basic config
 /etc/rc.conf
