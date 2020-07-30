@@ -1,17 +1,33 @@
-# Installing FreeBSD 12.1 as a KVM guest
+# Installing FreeBSD 12.1-RELEASE as a KVM guest
 First and foremost, when in doubt visit the [FreeBSD Handbook](https://www.freebsd.org/doc/handbook/), it is an amazing source of knowledge.  The configuration below does not always show how to make changes to the running system, so always reboot to make the changes live.
 
 ## VM config
-* Add evtouch tablet input device, this uses absolute mouse positioning and makes it so you do not need to hit ctrl + alt to release the mouse from the remote-viewer/virt-manager window.
+### Host config (if KVM)
+If the host is running KVM as the hypervisor technology and the host is running a Intel CPU then [disable kvm_intel preemption_timer](https://www.spinics.net/lists/kvm/msg161311.html).
+[Bug 216759](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=216759)
+
+### Guest config
+* Add evtouch tablet input device, this uses absolute mouse positioning and makes it so you do not need to hit ctrl + alt to release the mouse from the remote-viewer/virt-manager window
 
 ## Install
 * Select ports and source to be installed
 * Select Auto ZFS partitioning and select encrypt and encrypt swap
 
+### Patch system
+1. Patch the system first
+```
+freebsd-update fetch
+freebsd-update install
+```
+
 ## Basic config
+1. (Optional) Change quarterly to latest in `/etc/pkg/FreeBSD.conf`
+```
+latest
+```
 1. Install nice to have packages
 ```
-# pkg install sudo vim bash bash-completion tcpdump
+# pkg install sudo vim bash bash-completion tcpdump rsync
 ```
 2. Configure sudo
 ```
@@ -36,11 +52,16 @@ Log out and back in or reboot then run `locale` to verify the changes worked
 ```
 locale
 ```
+5. Disable vim mouse support in `/usr/local/etc/vim/vimrc`
+```
+set mouse=
+set ttymouse=
+```
 
 ## Configure Desktop
 1. Install XFCE4 packages
 ```
-sudo pkg install xorg xfce xfce4-power-manager xfce4-pulseaudio-plugin xfce4-screensaver xfce4-screenshooter-plugin xfce4-whiskermenu-plugin xfce4-xkb-plugin xfce4-goodies ristretto lightdm-gtk-greeter lightdm vlc gimp firefox x11-fonts/droid-fonts-ttf utouch-kmod xf86-video-qxl xf86-input-evdev
+sudo pkg install xorg xfce xfce4-power-manager xfce4-pulseaudio-plugin xfce4-screensaver xfce4-screenshooter-plugin xfce4-whiskermenu-plugin xfce4-xkb-plugin xfce4-goodies ristretto lightdm-gtk-greeter lightdm vlc gimp firefox x11-fonts/droid-fonts-ttf webfonts urwfonts unicode-emoji utouch-kmod xf86-video-qxl xf86-input-evdev
 ```
 2. Enable dbus and lightdm for XFCE4 in `/etc/rc.conf`
 ```
@@ -181,7 +202,7 @@ net.inet.ip.random_id=1
 ```
 sudo service tor onestart
 ```
-4. Configure a Firefox profile for Tor (using default SOCKS port 9050) and make it secure and use tor only after wireguard is started.  Install ublock-origin, no-script and https everywhere addons.
+4. Configure a Firefox profile for Tor (using default SOCKS port 9050) and make it secure and use tor only after wireguard is started.  Install HTTPS Everywhere, uBlock Origin, NoScript, User-Agent Switcher and Manager.
 
 ### Other hardening
 Add the following to `/etc/sysctl.conf`
