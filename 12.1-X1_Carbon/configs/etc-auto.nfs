@@ -1,0 +1,3 @@
+#
+# Mount tacos NFS share
+/nfs/data -fstype=nfs,rw  tacos:/nfs/data/

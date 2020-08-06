@@ -1,0 +1,86 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5
+        output_format = "i3bar"
+}
+
+#order += "ipv6"
+order += "ethernet ue0"
+order += "ethernet wg0"
+order += "wireless wlan0"
+order += "battery all"
+order += "disk /"
+order += "cpu_usage"
+order += "cpu_temperature 0"
+order += "memory"
+order += "volume_master"
+order += "tztime local"
+
+volume master {
+  format = "VOL %volume"
+  format_muted = "MUTE"
+}
+
+cpu_usage {
+  format = "CPU %usage"
+}
+
+cpu_temperature 0 {
+  format = "T: %degrees°C"
+  max_threshold = 55
+}
+
+wireless _first_ {
+        format_up = "W: (%quality at %essid) %ip"
+        format_down = "W: down"
+}
+
+wireless wlan0 {
+        format_up = "W: %essid %ip"
+        format_down = "W: down"
+}
+
+ethernet wg0 {
+        format_up = "VPN up %ip"
+	format_down = "VPN down"
+}
+
+ethernet ue0 {
+        format_up = "ue0: %ip (%speed)"
+        format_down = ""
+}
+
+ethernet em0 {
+        format_up = "E: %ip (%speed)"
+        format_down = ""
+}
+
+battery all {
+        format = "%status %percentage %remaining"
+}
+
+disk "/" {
+        format = "%avail"
+}
+
+load {
+        format = "%1min"
+}
+
+memory {
+        format = "%used | %available"
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}

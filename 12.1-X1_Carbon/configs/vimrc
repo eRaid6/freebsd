@@ -1,0 +1,37 @@
+""" Set encryption mode
+set cm=blowfish
+
+""" Misc
+"""set number
+set visualbell
+set modeline
+set paste
+""" Disable mouse
+set mouse=
+set ttymouse=
+
+""" Syntax and file detection
+filetype on
+filetype indent plugin on
+filetype plugin on
+syntax enable
+au BufNewFile,BufRead Jenkinsfile setf groovy
+
+""" Spaces, indentation, line length general styling
+""" Bash https://google.github.io/styleguide/shell.xml#Indentation
+""" Bash https://google.github.io/styleguide/shell.xml#Line_Length_and_Long_Strings
+""" # vi:tabstop=2:expandtab:autoindent
+autocmd Filetype sh setlocal expandtab tabstop=2 autoindent
+autocmd Filetype sh setlocal formatoptions+=t textwidth=80
+autocmd Filetype sh setlocal colorcolumn=80
+""" Python https://www.python.org/dev/peps/pep-0008/#indentation
+""" Python https://www.python.org/dev/peps/pep-0008/#maximum-line-length
+""" # vi:tabstop=4:expandtab:autoindent
+autocmd Filetype python setlocal expandtab tabstop=4 autoindent
+autocmd Filetype py setlocal formatoptions+=t textwidth=79
+autocmd Filetype py setlocal colorcolumn=79
+""" Puppet https://puppet.com/docs/puppet/5.5/style_guide.html#spacing-indentation-and-whitespace
+""" # vi:tabstop=2:expandtab:autoindent
+""" autocmd Filetype puppet setlocal expandtab tabstop=2 autoindent textwidth=140
+autocmd Filetype puppet setlocal expandtab tabstop=2 autoindent
+autocmd Filetype groovy setlocal expandtab tabstop=2 autoindent
