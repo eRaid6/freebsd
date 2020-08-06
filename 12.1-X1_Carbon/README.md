@@ -122,7 +122,7 @@ hw.psm.tap_timeout=0
 # Touchpad support
 moused_enable="YES"
 ```
-6. Configure webcam driver to start on boot [/etc/rc.conf](configs/etc-rc.conf)
+6. Configure webcam driver to start on boot [/etc/rc.conf](configs/etc-rc.conf)  
 ```
 #
 # Webcam support
@@ -133,10 +133,10 @@ You can test the webcam with `pwcview`
 sudo pkg install pwcview
 pwcview
 ```
-7. Configure WiFi [/etc/wpa_supplicant.conf](configs/etc-wpa_supplicant.conf)
+7. Configure WiFi [/etc/wpa_supplicant.conf](configs/etc-wpa_supplicant.conf)  
 [FreeBSD Handbook - 31.3 Wireless Networking](https://www.freebsd.org/doc/handbook/network-wireless.html)  
 Configure your WiFi network in [/etc/wpa_supplicant.conf](configs/etc-wpa_supplicant.conf) and then restart networking `sudo service netif restart`.  Check your connection by running `ifconfig`.
-8. Pulse audio
+8. Pulse audio  
 If you installed Firefox via `pkg` like above it is compiled against pulse audio.  On my X1 Carbon 6th gen the audio is choppy by default.  To fix the audio sounding chippy change `default-fragments` and `default-fragment-size-msec` in [/usr/local/etc/pulse/daemon.conf](configs/pulse-daemon.conf)
 ```
 #
