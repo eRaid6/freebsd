@@ -163,7 +163,7 @@ autofs_enable="YES"
 3. Create [/etc/auto_nfs](configs/etc-auto_nfs)
 ```
 #
-# Mount bean NFS share
+# Mount tacos NFS share
 /nfs/data -fstype=nfs,rw  tacos:/nfs/data
 ```
 
