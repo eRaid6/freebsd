@@ -267,5 +267,5 @@ net.inet.icmp.bmcastecho=0
 # Additional info
 [FreeBSD Handbook](https://www.freebsd.org/doc/handbook/)  
 [FreeBSD Forums](https://forums.freebsd.org/)  
-[FreeBSD on a Laptop - c0ffee.net](https://www.c0ffee.net/blog/freebsd-on-a-laptop)
-[FreeBSD on X1 Carbon (Gen 6) - RUN YOUR OWN](https://things.bleu255.com/runyourown/FreeBSD_on_X1_Carbon_(Gen_6))
+[FreeBSD on a Laptop - c0ffee.net](https://www.c0ffee.net/blog/freebsd-on-a-laptop)  
+[FreeBSD on X1 Carbon (Gen 6) - RUN YOUR OWN](https://things.bleu255.com/runyourown/FreeBSD_on_X1_Carbon_(Gen_6))  
