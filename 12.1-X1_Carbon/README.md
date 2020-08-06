@@ -136,8 +136,8 @@ pwcview
 7. Configure WiFi [/etc/wpa_supplicant.conf](configs/etc-wpa_supplicant.conf)  
 [FreeBSD Handbook - 31.3 Wireless Networking](https://www.freebsd.org/doc/handbook/network-wireless.html)  
 Configure your WiFi network in [/etc/wpa_supplicant.conf](configs/etc-wpa_supplicant.conf) and then restart networking `sudo service netif restart`.  Check your connection by running `ifconfig`.
-8. Pulse audio  
-If you installed Firefox via `pkg` like above it is compiled against pulse audio.  On my X1 Carbon 6th gen the audio is choppy by default.  To fix the audio sounding chippy change `default-fragments` and `default-fragment-size-msec` in [/usr/local/etc/pulse/daemon.conf](configs/pulse-daemon.conf)
+8. Configure Pulse audio  
+If you installed Firefox via `pkg` like above it is compiled against pulse audio.  On my X1 Carbon 6th gen the audio is choppy by default.  To fix the audio sounding choppy change `default-fragments` and `default-fragment-size-msec` in [/usr/local/etc/pulse/daemon.conf](configs/pulse-daemon.conf)
 ```
 #
 # Fix choppy audio
