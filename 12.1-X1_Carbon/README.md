@@ -1,12 +1,12 @@
 # Installing FreeBSD 12.1-RELEASE on a Lenovo X1 Carbon 6th Gen
 First and foremost, when in doubt visit the [FreeBSD Handbook](https://www.freebsd.org/doc/handbook/), it is an amazing source of knowledge.  The configuration below does not always show how to make changes to the running system, so always reboot to make the changes live.
 
-## Install
+## Install  
 [FreeBSD Handbook - 2 Installing FreeBSD](https://www.freebsd.org/doc/handbook/bsdinstall.html)  
 * Select ports and source to be installed
 * Select Auto ZFS partitioning and select encrypt and encrypt swap
 
-### Patch system
+### Patch system  
 [FreeBSD Handbook - 23 Updating and Upgrading FreeBSD](https://www.freebsd.org/doc/handbook/updating-upgrading.html)  
 First thing to do when the system is finished installing is to patch it (assuming you setup a network interface during the install)
 ```
@@ -15,25 +15,25 @@ freebsd-update install
 shutdown -r now
 ```
 
-## Basic config
-1. (Optional) Change quarterly to latest in `/etc/pkg/FreeBSD.conf`
+## Basic config  
+1. (Optional) Change quarterly to latest in `/etc/pkg/FreeBSD.conf`  
 [FreeBSD Handbook - 4.4.2 Quarterly and Latest Ports Branches](https://www.freebsd.org/doc/handbook/pkgng-intro.html)  
 ```
 # sed -i 's/quarterly"/latest"/g' /etc/pkg/FreeBSD.conf
 ```
-2. Install nice to have packages
+2. Install nice to have packages  
 ```
 pkg install sudo vim bash bash-completion tcpdump rsync
 ```
-3. Configure sudo
+3. Configure sudo  
 ```
 visudo
 ```
-4. Switch shell to bash
+4. Switch shell to bash  
 ```
 chsh -s /usr/local/bin/bash
 ```
-5. Set locale to utf-8 in [/etc/login.conf](configs/etc-login.conf)
+5. Set locale to utf-8 in [/etc/login.conf](configs/etc-login.conf)  
 The below config will change the locale for the entire system.  You dont need to do this system wide and folks will argue it _could_ break something for the root user.  If you do not want to do it system wide you can do it for each user in their login shell.  See [FreeBSD Handbook - 22.2.1 Setting Locale for Login Shell](https://www.freebsd.org/doc/handbook/using-localization.html) for more info on that.
 ```
 # https://www.freebsd.org/doc/handbook/using-localization.html
@@ -49,18 +49,18 @@ Log out and back in or reboot then run `locale` to verify the changes worked
 ```
 locale
 ```
-6. Disable vim mouse support in [~/.vimrc](configs/vimrc)
+6. Disable vim mouse support in [~/.vimrc](configs/vimrc)  
 ```
 set mouse=
 set ttymouse=
 ```
 
 ## Configure Desktop
-1. Install i3
+1. Install i3  
 ```
 sudo pkg install xorg i3 i3status i3lock dmenu dunst slim slim-freebsd-black-theme xautolock nextcloudclient ristretto vlc gimp cmus pwgen firefox networkmgr virt-viewer x11-fonts/droid-fonts-ttf twemoji-color-font-ttf webfonts urwfonts unicode-emoji xf86-input-synaptics
 ```
-2. Install intel video driver, need to install via port because binary was compiled for 12.0 only not 12.1
+2. Install intel video driver, need to install via port because binary was compiled for 12.0 only not 12.1  
 [FreeBSD Forums - Upgrading to FreeBSD 12.1-RELEASE - resolving an issue with drm-fbsd12.0-kmod](https://forums.freebsd.org/threads/upgrading-to-freebsd-12-1-release-resolving-an-issue-with-drm-fbsd12-0-kmod.72895/)  
 [FreeBSD 12.1R Errata - Open Issues](https://www.freebsd.org/releases/12.1R/errata.html#open-issues)  
 [FreeBSD Handbook - 4.5 Using the Ports Collection](https://www.freebsd.org/doc/handbook/ports-using.html)  
@@ -76,7 +76,7 @@ Load intel video driver on boot via [/etc/rc.conf](configs/etc-rc.conf)
 # Load intel driver on boot
 kld_list="/boot/modules/i915kms.ko"
 ```
-3. Configure slim
+3. Configure slim  
 Use the black theme
 ```
 sed 's/current_theme.*/current_theme slim-freebsd-black-theme/g' /usr/local/etc/slim.conf
@@ -85,7 +85,7 @@ Configure slim to start on boot [/etc/rc.conf](configs/etc-rc.conf)
 ```
 slim_enable="YES"
 ```
-4. Configure i3
+4. Configure i3  
 i3 config [~/.config/i3/config](configs/i3-config)  
 ```
 mkdir ~/.config/i3
@@ -100,7 +100,7 @@ Lock screen on suspend [/etc/rc.suspend](configs/etc-rc.suspend)
 /usr/bin/su YOURUSERNAME -c 'DISPLAY=:0.0 /usr/local/bin/i3lock --color 000000'
 ```
 
-5. Configure touchpad
+5. Configure touchpad  
 [Synaptics Touchpad](https://wiki.freebsd.org/SynapticsTouchpad)  
 [/boot/loader.conf](configs/boot-loader.conf)  
 ```
