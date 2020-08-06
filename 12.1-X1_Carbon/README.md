@@ -2,12 +2,12 @@
 First and foremost, when in doubt visit the [FreeBSD Handbook](https://www.freebsd.org/doc/handbook/), it is an amazing source of knowledge.  The configuration below does not always show how to make changes to the running system, so always reboot to make the changes live.
 
 ## Install
-[FreeBSD Handbook - 2 Installing FreeBSD](https://www.freebsd.org/doc/handbook/bsdinstall.html)
+[FreeBSD Handbook - 2 Installing FreeBSD](https://www.freebsd.org/doc/handbook/bsdinstall.html)  
 * Select ports and source to be installed
 * Select Auto ZFS partitioning and select encrypt and encrypt swap
 
 ### Patch system
-[FreeBSD Handbook - 23 Updating and Upgrading FreeBSD](https://www.freebsd.org/doc/handbook/updating-upgrading.html)
+[FreeBSD Handbook - 23 Updating and Upgrading FreeBSD](https://www.freebsd.org/doc/handbook/updating-upgrading.html)  
 First thing to do when the system is finished installing is to patch it (assuming you setup a network interface during the install)
 ```
 freebsd-update fetch
@@ -17,7 +17,7 @@ shutdown -r now
 
 ## Basic config
 1. (Optional) Change quarterly to latest in `/etc/pkg/FreeBSD.conf`
-[FreeBSD Handbook - 4.4.2 Quarterly and Latest Ports Branches](https://www.freebsd.org/doc/handbook/pkgng-intro.html)
+[FreeBSD Handbook - 4.4.2 Quarterly and Latest Ports Branches](https://www.freebsd.org/doc/handbook/pkgng-intro.html)  
 ```
 # sed -i 's/quarterly"/latest"/g' /etc/pkg/FreeBSD.conf
 ```
@@ -61,8 +61,8 @@ set ttymouse=
 sudo pkg install xorg i3 i3status i3lock dmenu dunst slim slim-freebsd-black-theme xautolock nextcloudclient ristretto vlc gimp cmus pwgen firefox networkmgr virt-viewer x11-fonts/droid-fonts-ttf twemoji-color-font-ttf webfonts urwfonts unicode-emoji xf86-input-synaptics
 ```
 2. Install intel video driver, need to install via port because binary was compiled for 12.0 only not 12.1
-[](https://forums.freebsd.org/threads/upgrading-to-freebsd-12-1-release-resolving-an-issue-with-drm-fbsd12-0-kmod.72895/)
-[](https://www.freebsd.org/releases/12.1R/errata.html#open-issues)
+[](https://forums.freebsd.org/threads/upgrading-to-freebsd-12-1-release-resolving-an-issue-with-drm-fbsd12-0-kmod.72895/)  
+[](https://www.freebsd.org/releases/12.1R/errata.html#open-issues)  
 ```
 portsnap fetch
 portsnap extract
@@ -101,7 +101,7 @@ Lock screen on suspend [/etc/rc.suspend](configs/etc-rc.suspend)
 
 5. Configure touchpad
 [Synaptics Touchpad](https://wiki.freebsd.org/SynapticsTouchpad)  
-[/boot/loader.conf](configs/boot-loader.conf)
+[/boot/loader.conf](configs/boot-loader.conf)  
 ```
 #
 # Touchpad support
@@ -134,11 +134,11 @@ sudo pkg install pwcview
 pwcview
 ```
 7. Configure WiFi [/etc/wpa_supplicant.conf](configs/etc-wpa_supplicant.conf)
-[FreeBSD Handbook - 31.3 Wireless Networking](https://www.freebsd.org/doc/handbook/network-wireless.html)
+[FreeBSD Handbook - 31.3 Wireless Networking](https://www.freebsd.org/doc/handbook/network-wireless.html)  
 Configure your WiFi network in [/etc/wpa_supplicant.conf](configs/etc-wpa_supplicant.conf) and then restart networking `sudo service netif restart`.  Check your connection by running `ifconfig`.
 
 ## Configure NFS via auto mounter
-[FreeBSD Handbook - 29.3 Network File System](https://www.freebsd.org/doc/handbook/network-nfs.html)
+[FreeBSD Handbook - 29.3 Network File System](https://www.freebsd.org/doc/handbook/network-nfs.html)  
 1. Enable autofs to start on boot in [/etc/rc.conf](configs/etc-rc.conf)
 ```
 #
@@ -175,7 +175,7 @@ sudo echo 'AllowUsers nick' >> /etc/ssh/sshd_config
 ```
 
 ### IPFW
-[FreeBSD Handbook - 30.4 IPFW](https://www.freebsd.org/doc/handbook/firewalls-ipfw.html)
+[FreeBSD Handbook - 30.4 IPFW](https://www.freebsd.org/doc/handbook/firewalls-ipfw.html)  
 1. Enable IPFW firewall and configure basic config in [/etc/rc.conf](configs/etc-rc.conf)
 ```
 #
@@ -240,7 +240,7 @@ sudo service wireguard onestart
 ```
 
 ### Other hardening
-[FreeBSD Handbook - 13 Security](https://www.freebsd.org/doc/handbook/security-intro.html)
+[FreeBSD Handbook - 13 Security](https://www.freebsd.org/doc/handbook/security-intro.html)  
 Add the following to [/etc/sysctl.conf](configs/etc-sysctl.conf)
 ```
 #
