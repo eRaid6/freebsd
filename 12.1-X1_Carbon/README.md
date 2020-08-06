@@ -62,7 +62,8 @@ sudo pkg install xorg i3 i3status i3lock dmenu dunst slim slim-freebsd-black-the
 ```
 2. Install intel video driver, need to install via port because binary was compiled for 12.0 only not 12.1
 [](https://forums.freebsd.org/threads/upgrading-to-freebsd-12-1-release-resolving-an-issue-with-drm-fbsd12-0-kmod.72895/)  
-[](https://www.freebsd.org/releases/12.1R/errata.html#open-issues)  
+[FreeBSD 12.1R Errata - Open Issues](https://www.freebsd.org/releases/12.1R/errata.html#open-issues)  
+[FreeBSD Handbook - 4.5 Using the Ports Collection](https://www.freebsd.org/doc/handbook/ports-using.html)  
 ```
 portsnap fetch
 portsnap extract
