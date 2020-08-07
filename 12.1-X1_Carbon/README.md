@@ -58,7 +58,7 @@ set ttymouse=
 ## Configure Desktop
 1. Install i3  
 ```
-sudo pkg install xorg i3 i3status i3lock dmenu dunst slim slim-freebsd-black-theme xautolock nextcloudclient ristretto vlc gimp cmus pwgen firefox networkmgr virt-viewer x11-fonts/droid-fonts-ttf twemoji-color-font-ttf webfonts urwfonts unicode-emoji xf86-input-synaptics
+sudo pkg install xorg i3 i3status i3lock dmenu dunst slim slim-freebsd-black-theme xautolock nextcloudclient gnome-keyring libgnome-keyring ristretto vlc gimp cmus pwgen firefox networkmgr virt-viewer x11-fonts/droid-fonts-ttf twemoji-color-font-ttf webfonts urwfonts unicode-emoji xf86-input-synaptics
 ```
 2. Install intel video driver, need to install via port because binary was compiled for 12.0 only not 12.1  
 [FreeBSD Forums - Upgrading to FreeBSD 12.1-RELEASE - resolving an issue with drm-fbsd12.0-kmod](https://forums.freebsd.org/threads/upgrading-to-freebsd-12-1-release-resolving-an-issue-with-drm-fbsd12-0-kmod.72895/)  
