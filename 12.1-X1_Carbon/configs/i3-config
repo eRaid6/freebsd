@@ -17,7 +17,7 @@ set $mod Mod4
 font pango:DejaVu Sans Mono 11
 
 # Start apps for our session
-exec --no-startup-id ssh-agent
+exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 exec --no-startup-id xautolock -time 10 -locker 'i3lock --color 000000'
 exec --no-startup-id nextcloud
 # Firefox is built against pulseaudio so we need it running for audio in a browser
