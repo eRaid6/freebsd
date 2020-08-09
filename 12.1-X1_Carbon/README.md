@@ -34,7 +34,7 @@ visudo
 chsh -s /usr/local/bin/bash
 ```
 [bash(1)](https://www.freebsd.org/cgi/man.cgi?query=bash&sektion=1&manpath=freebsd-release-ports)
-If setting up [.bashrc]() and you expect it to be run everytime then make sure you either symlink [~/.bash_profile]() to it or source `~/.bashrc` in your `~/.bash_profile`.
+If setting up `~/.bashrc` and you expect it to be run everytime you launch bash then either symlink `~/.bash_profile` to it or source `~/.bashrc` in `~/.bash_profile`.
 >        When  bash is invoked as	an interactive login shell, or as a non-inter-
 >       active shell with the --login option, it	first reads and	executes  com-
 >       mands  from  the	file /etc/profile, if that file	exists.	 After reading
