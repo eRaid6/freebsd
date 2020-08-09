@@ -33,6 +33,25 @@ visudo
 ```
 chsh -s /usr/local/bin/bash
 ```
+[bash(1)](https://www.freebsd.org/cgi/man.cgi?query=bash&sektion=1&manpath=freebsd-release-ports)
+If setting up [.bashrc]() and you expect it to be run everytime then make sure you either symlink [~/.bash_profile]() to it or source `~/.bashrc` in your `~/.bash_profile`.
+>        When  bash is invoked as	an interactive login shell, or as a non-inter-
+>       active shell with the --login option, it	first reads and	executes  com-
+>       mands  from  the	file /etc/profile, if that file	exists.	 After reading
+>       that file, it looks for ~/.bash_profile,	~/.bash_login, and ~/.profile,
+>       in  that	order, and reads and executes commands from the	first one that
+>       exists and is readable.	The --noprofile	option may be  used  when  the
+>       shell is	started	to inhibit this	behavior.
+>
+>       When an interactive login shell exits, or a non-interactive login shell
+>       executes	the exit builtin command, bash	reads  and  executes  commands
+>       from the	file ~/.bash_logout, if	it exists.
+>
+>       When  an	 interactive  shell that is not	a login	shell is started, bash
+>       reads and executes commands from	~/.bashrc, if that file	exists.	  This
+>       may  be inhibited by using the --norc option.  The --rcfile file	option
+>       will force bash to read and  execute  commands  from  file  instead  of
+>       ~/.bashrc.
 5. Set locale to utf-8 in [/etc/login.conf](configs/etc-login.conf)  
 The below config will change the locale for the entire system.  You dont need to do this system wide and folks will argue it _could_ break something for the root user.  If you do not want to do it system wide you can do it for each user in their login shell.  See [FreeBSD Handbook - 22.2.1 Setting Locale for Login Shell](https://www.freebsd.org/doc/handbook/using-localization.html) for more info on that.
 ```
