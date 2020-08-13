@@ -77,7 +77,7 @@ set ttymouse=
 ## Configure Desktop
 1. Install i3  
 ```
-sudo pkg install xorg i3 i3status i3lock dmenu dunst slim slim-freebsd-black-theme xautolock xfce4-terminal git nextcloudclient gnome-keyring libgnome-keyring eog vlc gimp cmus pwgen firefox-esr networkmgr virt-viewer x11-fonts/droid-fonts-ttf twemoji-color-font-ttf webfonts urwfonts unicode-emoji xf86-input-synaptics
+sudo pkg install xorg i3 i3status i3lock dmenu dunst slim slim-freebsd-black-theme xautolock xfce4-terminal git webcamd freerdp nextcloudclient gnome-keyring libgnome-keyring eog vlc gimp cmus pwgen firefox-esr networkmgr virt-viewer x11-fonts/droid-fonts-ttf twemoji-color-font-ttf webfonts urwfonts unicode-emoji xf86-input-synaptics
 ```
 2. Install intel video driver, need to install via port because binary was compiled for 12.0 only not 12.1  
 [FreeBSD Forums - Upgrading to FreeBSD 12.1-RELEASE - resolving an issue with drm-fbsd12.0-kmod](https://forums.freebsd.org/threads/upgrading-to-freebsd-12-1-release-resolving-an-issue-with-drm-fbsd12-0-kmod.72895/)  
@@ -142,11 +142,20 @@ hw.psm.tap_timeout=0
 # Touchpad support
 moused_enable="YES"
 ```
-6. Configure webcam driver to start on boot [/etc/rc.conf](configs/etc-rc.conf)  
+6. Webcam config  
+Configure webcam driver to start on boot [/etc/rc.conf](configs/etc-rc.conf)  
 ```
 #
 # Webcam support
 webcamd_load="YES"
+```
+Configure cuse module to load on boot [/boot/loader.conf](configs/boot-loader.conf)  
+```
+cuse_load="YES"
+```
+Add your user to the webcamd group
+```
+pw groupmod webcamd -m <username>
 ```
 You can test the webcam with `pwcview`
 ```
