@@ -227,7 +227,7 @@ firewall_logdeny="YES"
 ```
 2. Reboot
 ```
-sudo shutdown -r now
+sudo shutdown -r now 'rebooting'
 ```
 
 ### Veracrypt
