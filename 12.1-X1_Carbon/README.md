@@ -113,7 +113,13 @@ i3status config [~/.config/i3status/config](configs/i3status-config)
 ```
 mkdir ~/.config/i3status
 ```
-Lock screen on suspend [/etc/rc.suspend](configs/etc-rc.suspend)
+Lock screen on suspend [/etc/rc.suspend](configs/etc-rc.suspend)  
+*Note* For sleep to work you need at least BIOS 1.30 and you need to enable the Linux Sleep State in the Bios  
+> <1.30>
+> UEFI: 1.30 / ECP: 1.08
+> - (New) Support Optimized Sleep State for Linux in ThinkPad Setup - Config - Power.
+>        (Note) "Linux" option is optimized for Linux OS, Windows user must select 
+>	       "Windows 10" option.
 ```
 # Lock screen (via i3lock) when suspending
 /usr/bin/su YOURUSERNAME -c 'DISPLAY=:0.0 /usr/local/bin/i3lock --color 000000'
