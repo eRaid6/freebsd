@@ -12,7 +12,7 @@ First thing to do when the system is finished installing is to patch it (assumin
 ```
 freebsd-update fetch
 freebsd-update install
-shutdown -r now
+shutdown -r now 'patching base system'
 ```
 
 ## Basic config  
@@ -227,7 +227,7 @@ firewall_logdeny="YES"
 ```
 2. Reboot
 ```
-sudo shutdown -r now 'rebooting'
+sudo shutdown -r now 'enabling ipfw'
 ```
 
 ### Veracrypt
