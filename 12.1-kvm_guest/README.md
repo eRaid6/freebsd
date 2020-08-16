@@ -123,7 +123,7 @@ sudo echo 'AllowUsers bob joe' >> /etc/ssh/sshd_config
 firewall_enable="YES"
 firewall_quiet="YES"
 firewall_type="workstation"
-firewall_myservices="22"
+firewall_myservices="22/tcp"
 firewall_allowservices="192.168.1.0/24"
 firewall_logdeny="YES"
 ```
