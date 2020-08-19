@@ -171,6 +171,17 @@ pwcview
 7. Configure WiFi [/etc/wpa_supplicant.conf](configs/etc-wpa_supplicant.conf)  
 [FreeBSD Handbook - 31.3 Wireless Networking](https://www.freebsd.org/doc/handbook/network-wireless.html)  
 Configure your WiFi network in [/etc/wpa_supplicant.conf](configs/etc-wpa_supplicant.conf) and then restart networking `sudo service netif restart`.  Check your connection by running `ifconfig`.
+7a. Configure lagg [/etc/rc.conf](configs/etc-rc.conf)  
+You can also configure [lagg](https://www.freebsd.org/cgi/man.cgi?query=lagg&sektion=4&manpath=freebsd-release-ports) to enable [failover Mode Between Ethernet and Wireless Interfaces](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/network-aggregation.html). 
+```
+ifconfig_em0="ether 20:57:8a:99:ff:ff"
+wlans_iwm0="wlan0"
+ifconfig_wlan0="WPA powersave"
+# https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/network-aggregation.html 31.3
+cloned_interfaces="lagg0"
+ifconfig_lagg0="up laggproto failover laggport em0 laggport wlan0 DHCP"
+```
+
 8. Configure Pulse audio  
 If you installed Firefox via `pkg` like above it is compiled against pulse audio.  On my X1 Carbon 6th gen the audio is choppy by default.  To fix the audio sounding choppy change `default-fragments` and `default-fragment-size-msec` in [/usr/local/etc/pulse/daemon.conf](configs/pulse-daemon.conf)
 ```
