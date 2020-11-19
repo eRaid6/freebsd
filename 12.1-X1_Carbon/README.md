@@ -75,9 +75,14 @@ set ttymouse=
 ```
 
 ## Configure Desktop
-1. Install i3  
+1. Install i3 or XFCE 4 
+i3 
 ```
-sudo pkg install xorg i3 i3status i3lock dmenu dunst slim slim-freebsd-black-theme xautolock xfce4-terminal git webcamd freerdp nextcloudclient gnome-keyring libgnome-keyring eog vlc gimp cmus pwgen firefox-esr networkmgr virt-viewer x11-fonts/droid-fonts-ttf twemoji-color-font-ttf webfonts urwfonts unicode-emoji xf86-input-synaptics
+sudo pkg install xorg i3 i3status i3lock dmenu dunst slim slim-freebsd-black-theme xautolock xfce4-terminal git webcamd freerdp nextcloudclient gnome-keyring libgnome-keyring eog vlc gimp cmus pwgen firefox-esr networkmgr virt-viewer x11-fonts/droid-fonts-ttf twemoji-color-font-ttf webfonts urwfonts unicode-emoji xf86-input-synaptics colordiff
+```
+XFCE 4 
+```
+sudo pkg install xorg xfce4 xfce4-power-manager xfce4-battery-plugin xfce4-pulseaudio-plugin xfce4-systemload-plugin slim slim-freebsd-black-theme git webcamd freerdp nextcloudclient gnome-keyring libgnome-keyring eog vlc gimp cmus pwgen firefox-esr networkmgr virt-viewer x11-fonts/droid-fonts-ttf twemoji-color-font-ttf webfonts urwfonts unicode-emoji xf86-input-synaptics colordiff
 ```
 2. Install intel video driver, need to install via port because binary was compiled for 12.0 only not 12.1  
 [FreeBSD Forums - Upgrading to FreeBSD 12.1-RELEASE - resolving an issue with drm-fbsd12.0-kmod](https://forums.freebsd.org/threads/upgrading-to-freebsd-12-1-release-resolving-an-issue-with-drm-fbsd12-0-kmod.72895/)  
@@ -103,6 +108,13 @@ sed 's/current_theme.*/current_theme slim-freebsd-black-theme/g' /usr/local/etc/
 Configure slim to start on boot [/etc/rc.conf](configs/etc-rc.conf)
 ```
 slim_enable="YES"
+```
+Create `.xinitrc` to lauch your desktop when slim logs you in
+```
+# xfce4
+. /usr/local/etc/xdg/xfce4/xinitrc
+# i3
+# . /usr/local/bin/i3
 ```
 4. Configure i3  
 i3 config [~/.config/i3/config](configs/i3-config)  
@@ -293,6 +305,11 @@ wireguard_enable="YES"
 sudo service wireguard enable
 # Start WireGuard once
 sudo service wireguard onestart
+```
+
+5. Yubikey tools
+```
+sudo pkg install yubico-piv-tool yubikey-agent yubikey-manager-qt yubikey-personalization-gui yubioath-desktop
 ```
 
 ### Other hardening
