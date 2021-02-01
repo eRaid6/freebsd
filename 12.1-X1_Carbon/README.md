@@ -342,3 +342,4 @@ net.inet.icmp.bmcastecho=0
 [FreeBSD Forums](https://forums.freebsd.org/)  
 [FreeBSD on a Laptop - c0ffee.net](https://www.c0ffee.net/blog/freebsd-on-a-laptop)  
 [FreeBSD on X1 Carbon (Gen 6) - RUN YOUR OWN](https://things.bleu255.com/runyourown/FreeBSD_on_X1_Carbon_(Gen_6))  
+[FreeBSD as a Host with VirtualBox](https://docs.freebsd.org/en_US.ISO8859-1/books/handbook/virtualization-host-virtualbox.html)   
